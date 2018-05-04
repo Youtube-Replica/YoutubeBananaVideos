@@ -125,13 +125,13 @@ public class Videos {
 //
     public static String deleteVideoByID(int id){
         ArangoDB arangoDB = new ArangoDB.Builder().build();
-        String dbName = "subscriptions";
-        String collectionName = "Video";
-
-        ArrayList<Long> ids = new ArrayList<>();
-
-        arangoDB.db(dbName).collection(collectionName).deleteDocument("" + id);
-
-        return true+"";
+        String dbName = "scalable";
+        String collectionName = "video";
+        try{
+        arangoDB.db(dbName).collection(collectionName).deleteDocument(""+ id);
+        }catch (ArangoDBException e){
+            e.printStackTrace();
+        }
+        return "Deleted Video";
     }
 }

@@ -11,7 +11,7 @@ import model.Videos;
 import java.io.IOException;
 import java.util.HashMap;
 
-public class DeleteVideos extends Command {
+public class DeleteVideo extends Command {
     public static int id = 0;
     public void execute() {
         HashMap<String, Object> props = parameters;
@@ -21,11 +21,8 @@ public class DeleteVideos extends Command {
         id = 0;
         try {
             JSONObject body = (JSONObject) parser.parse((String) props.get("body"));
-            System.out.println(props);
-            System.out.println(body.toString());
-            JSONObject params = (JSONObject) parser.parse(body.get("body").toString());
+            JSONObject params = (JSONObject) parser.parse(body.get("parameters").toString());
             id = Integer.parseInt(params.get("id").toString());
-            System.out.println(id);
         } catch (ParseException e) {
             e.printStackTrace();
         }
