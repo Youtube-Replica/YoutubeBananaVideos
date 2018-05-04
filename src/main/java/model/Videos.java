@@ -14,7 +14,8 @@ import java.util.Map;
 public class Videos {
 
     public static String getVideoByID(int id) {
-        ArangoDB arangoDB = new ArangoDB.Builder().build();
+        String host = System.getenv("ARANGO_DB_SERVICE_HOST");
+        ArangoDB arangoDB = new ArangoDB.Builder().host(host, 8529).build();
         String dbName = "scalable";
         String collectionName = "video";
         JSONObject videoObjectM = new JSONObject();
