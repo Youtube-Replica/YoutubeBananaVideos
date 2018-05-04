@@ -17,7 +17,7 @@ public class Videos {
     public static String getVideoByID(int id) {
         ArangoDB arangoDB = new ArangoDB.Builder().build();
         String dbName = "scalable";
-        String collectionName = "Videos";
+        String collectionName = "video";
         JSONObject videoObjectM = new JSONObject();
         try {
             BaseDocument myDocument = arangoDB.db(dbName).collection(collectionName).getDocument("" + id,
@@ -48,7 +48,7 @@ public class Videos {
         String dbName = "scalable";
         JSONObject videoObject = new JSONObject();
         JSONArray videoArray = new JSONArray();
-        String query = "FOR doc IN Videos\n" +
+        String query = "FOR doc IN video\n" +
                  "        FILTER doc.`channel_id` like @value\n" +
                 "        RETURN doc";
         Map<String, Object> bindVars = new MapBuilder().put("value", channel_id).get();
@@ -61,7 +61,7 @@ public class Videos {
             for (; cursor.hasNext(); ) {
                 cursor2 = cursor.next();
                 JSONObject videoObjectM = new JSONObject();
-                BaseDocument myDocument2 = arangoDB.db(dbName).collection("Videos").getDocument(cursor2.getKey(),
+                BaseDocument myDocument2 = arangoDB.db(dbName).collection("video").getDocument(cursor2.getKey(),
                         BaseDocument.class);
                 int video_id= Integer.parseInt(cursor2.getKey());
                 videoObjectM.put("VideoID", video_id);
