@@ -32,7 +32,6 @@ public class DeleteVideo extends Command {
         String response = Videos.deleteVideoByID(id);
         try {
             channel.basicPublish("", properties.getReplyTo(), replyProps, response.getBytes("UTF-8"));
-            channel.basicAck(envelope.getDeliveryTag(), false);
         } catch (IOException e) {
             e.printStackTrace();
         }
