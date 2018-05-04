@@ -11,7 +11,7 @@ import model.Videos;
 import java.io.IOException;
 import java.util.HashMap;
 
-public class PostVideos extends Command{
+public class CreateVideo extends Command{
     public static int id = 0;
     public static int subID = 0;
     public void execute() {
@@ -23,8 +23,6 @@ public class PostVideos extends Command{
         try {
             JSONObject body = (JSONObject) parser.parse((String) props.get("body"));
             JSONObject params = (JSONObject) parser.parse(body.get("body").toString());
-
-
         AMQP.BasicProperties properties = (AMQP.BasicProperties) props.get("properties");
         AMQP.BasicProperties replyProps = (AMQP.BasicProperties) props.get("replyProps");
         Envelope envelope = (Envelope) props.get("envelope");

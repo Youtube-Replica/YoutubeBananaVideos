@@ -9,7 +9,6 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.Map;
 
 public class Videos {
@@ -95,14 +94,13 @@ public class Videos {
 
     public static String postVideoByID(JSONObject params){
         ArangoDB arangoDB = new ArangoDB.Builder().build();
-        String dbName = "subscriptions";
-        String collectionName = "Videos";
+        String dbName = "scalable";
+        String collectionName = "video";
         BaseDocument myObject = new BaseDocument();
-        JSONObject videoObject = new JSONObject();
         myObject.addAttribute("channel_id", Integer.parseInt(params.get("channel_id").toString()));
-        myObject.addAttribute("likes", 0);//Integer.parseInt(params.get("likes").toString()));
-        myObject.addAttribute("dislikes", 0);//Integer.parseInt(params.get("dislikes").toString()));
-        myObject.addAttribute("views", 0);//Integer.parseInt(params.get("views").toString()));
+        myObject.addAttribute("likes", 0);
+        myObject.addAttribute("dislikes", 0);
+        myObject.addAttribute("views", 0);
         myObject.addAttribute("title", params.get("title").toString());
         myObject.addAttribute("category", params.get("category").toString());
         myObject.addAttribute("duration", Integer.parseInt(params.get("duration").toString()));
@@ -111,18 +109,13 @@ public class Videos {
         myObject.addAttribute("private", params.get("private"));
         myObject.addAttribute("date_created", new Timestamp(System.currentTimeMillis()));
         myObject.addAttribute("date_modified", new Timestamp(System.currentTimeMillis()));
-
         try{
             arangoDB.db(dbName).collection(collectionName).insertDocument(myObject);
-            System.out.println("Document created");
-
         } catch (ArangoDBException e) {
             System.err.println("Failed to create document. " + e.getMessage());
         }
-        return videoObject.toString();
-
+        return "Document Created";
     }
-//
     public static String deleteVideoByID(int id){
         ArangoDB arangoDB = new ArangoDB.Builder().build();
         String dbName = "scalable";
