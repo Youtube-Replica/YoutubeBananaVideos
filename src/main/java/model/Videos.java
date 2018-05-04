@@ -1,18 +1,15 @@
-package Model;
+package model;
 
 import com.arangodb.ArangoCursor;
 import com.arangodb.ArangoDB;
 import com.arangodb.ArangoDBException;
 import com.arangodb.entity.BaseDocument;
-import com.arangodb.entity.DocumentCreateEntity;
 import com.arangodb.util.MapBuilder;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import javax.swing.text.Document;
 import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Map;
 
 public class Videos {

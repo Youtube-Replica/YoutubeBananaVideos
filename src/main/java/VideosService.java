@@ -1,7 +1,8 @@
-import Commands.Get.GetVideos;
-import Commands.Post.PostVideos;
 import com.rabbitmq.client.*;
-import Commands.Command;
+import commands.Command;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -43,9 +44,7 @@ public class VideosService {
 
                     try {
                         String message = new String(body, "UTF-8");
-                        Command cmd = new PostVideos();
-//                        Command cmd1 = new DeleteVideos();
-                        //Command cmd1 = new PostVideos();
+                        Command cmd = (Command) Class.forName("commands."+getCommand(message)).newInstance();
                         HashMap<String, Object> props = new HashMap<String, Object>();
                         props.put("channel", channel);
                         props.put("properties", properties);
@@ -54,11 +53,17 @@ public class VideosService {
                         props.put("body", message);
 
                         cmd.init(props);
-//                        cmd1.init(props);
                         executor.submit(cmd);
-//                        executor.submit(cmd1);
                     } catch (RuntimeException e) {
                         System.out.println(" [.] " + e.toString());
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    } catch (InstantiationException e) {
+                        e.printStackTrace();
+                    } catch (ClassNotFoundException e) {
+                        e.printStackTrace();
                     } finally {
                         synchronized (this) {
                             this.notify();
@@ -72,5 +77,11 @@ public class VideosService {
             e.printStackTrace();
         }
 
+    }
+    public static String getCommand(String message) throws ParseException {
+        JSONParser parser = new JSONParser();
+        JSONObject messageJson = (JSONObject) parser.parse(message);
+        String result = messageJson.get("command").toString();
+        return result;
     }
 }

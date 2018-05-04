@@ -1,4 +1,4 @@
-package Commands.Get;
+package commands;
 
 
 import com.rabbitmq.client.AMQP;
@@ -7,8 +7,7 @@ import com.rabbitmq.client.Envelope;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import Model.Videos;
-import Commands.Command;
+import model.Videos;
 
 import java.io.IOException;
 import java.util.HashMap;
