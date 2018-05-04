@@ -98,8 +98,8 @@ public class Videos {
         String collectionName = "video";
         BaseDocument myObject = new BaseDocument();
         myObject.addAttribute("channel_id", Integer.parseInt(params.get("channel_id").toString()));
-        myObject.addAttribute("likes", 0);
-        myObject.addAttribute("dislikes", 0);
+        myObject.addAttribute("likes", new JSONArray());
+        myObject.addAttribute("dislikes", new JSONArray());
         myObject.addAttribute("views", 0);
         myObject.addAttribute("title", params.get("title").toString());
         myObject.addAttribute("category", params.get("category").toString());
@@ -126,5 +126,31 @@ public class Videos {
             e.printStackTrace();
         }
         return "Deleted Video";
+    }
+    public static String updateVideo(JSONObject params){
+        ArangoDB arangoDB = new ArangoDB.Builder().build();
+        String dbName = "scalable";
+        String collectionName = "video";
+        int id =  Integer.parseInt(params.get("id").toString());
+        try {
+        BaseDocument myDocument = arangoDB.db(dbName).collection(collectionName).getDocument("" + id,
+                BaseDocument.class);
+        arangoDB.db(dbName).collection(collectionName).deleteDocument(""+id);
+        myDocument.updateAttribute("channel_id",Integer.parseInt(params.get("channel_id").toString()));
+        myDocument.updateAttribute("likes",params.get("likes"));
+        myDocument.updateAttribute("dislikes",params.get("dislikes"));
+        myDocument.updateAttribute("views",params.get("views"));
+        myDocument.updateAttribute("title",params.get("title"));
+        myDocument.updateAttribute("category",params.get("category"));
+        myDocument.updateAttribute("duration",params.get("duration"));
+        myDocument.updateAttribute("description",params.get("description"));
+        myDocument.updateAttribute("qualities",params.get("qualities"));
+        myDocument.updateAttribute("private", params.get("private"));
+        myDocument.updateAttribute("date_modified", new Timestamp(System.currentTimeMillis()));
+        arangoDB.db(dbName).collection(collectionName).insertDocument(myDocument);
+        }catch (ArangoDBException e){
+            e.printStackTrace();
+        }
+        return "Document "+ id + " updated";
     }
 }
