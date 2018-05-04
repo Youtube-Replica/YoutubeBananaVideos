@@ -14,18 +14,14 @@ import java.util.Map;
 
 public class Videos {
 
-    //Gets channels' info subscribed by user ID(user ID = _key and maps to array of channels' IDs)
     public static String getVideoByID(int id) {
         ArangoDB arangoDB = new ArangoDB.Builder().build();
-        String dbName = "subscriptions";
+        String dbName = "scalable";
         String collectionName = "Videos";
         JSONObject videoObjectM = new JSONObject();
-        System.out.println("hena");
         try {
             BaseDocument myDocument = arangoDB.db(dbName).collection(collectionName).getDocument("" + id,
                     BaseDocument.class);
-
-            JSONObject subscriptionObject = new JSONObject();
             videoObjectM.put("VideoID",id);
             videoObjectM.put("ChannelID",myDocument.getAttribute("channel_id"));
             videoObjectM.put("Likes",myDocument.getAttribute("likes"));
@@ -37,24 +33,20 @@ public class Videos {
             videoObjectM.put("Description",myDocument.getAttribute("description"));
             videoObjectM.put("Qualities",myDocument.getAttribute("qualities"));
             videoObjectM.put("Private",myDocument.getAttribute("private"));
+            videoObjectM.put("url",myDocument.getAttribute("url"));
             videoObjectM.put("Date_Created",myDocument.getAttribute("date_created"));
             videoObjectM.put("Date_Modified",myDocument.getAttribute("date_modified"));
-
          } catch (ArangoDBException e) {
             System.err.println("Failed to get document: myKey; " + e.getMessage());
         }
         System.out.println(videoObjectM.toString());
         return videoObjectM.toString();
-
-
     }
 
     public static String getVideoChannelsByID(int channel_id) {
         ArangoDB arangoDB = new ArangoDB.Builder().build();
-        String dbName = "subscriptions";
-        String collectionName = "videos";
+        String dbName = "scalable";
         JSONObject videoObject = new JSONObject();
-        String subs = "";
         JSONArray videoArray = new JSONArray();
         String query = "FOR doc IN Videos\n" +
                  "        FILTER doc.`channel_id` like @value\n" +
@@ -63,30 +55,29 @@ public class Videos {
 
         ArangoCursor<BaseDocument> cursor = arangoDB.db(dbName).query(query, bindVars, null,
                 BaseDocument.class);
+
         if(cursor.hasNext()) {
             BaseDocument cursor2=null;
-            int id2=0;
             for (; cursor.hasNext(); ) {
                 cursor2 = cursor.next();
-                System.out.println(cursor2.getKey());
                 JSONObject videoObjectM = new JSONObject();
                 BaseDocument myDocument2 = arangoDB.db(dbName).collection("Videos").getDocument(cursor2.getKey(),
                         BaseDocument.class);
                 int video_id= Integer.parseInt(cursor2.getKey());
-
                 videoObjectM.put("VideoID", video_id);
-                videoObjectM.put("ChannelID", channel_id);
-                videoObjectM.put("Likes", Integer.parseInt(""+myDocument2.getAttribute("likes")));
-                videoObjectM.put("Dislikes", Integer.parseInt(""+myDocument2.getAttribute("dislikes")));
-                videoObjectM.put("Views", Integer.parseInt(""+myDocument2.getAttribute("views")));
-                videoObjectM.put("Title", myDocument2.getAttribute("title"));
-                videoObjectM.put("Category", myDocument2.getAttribute("category"));
-                videoObjectM.put("Duration", Integer.parseInt(""+myDocument2.getAttribute("duration")));
-                videoObjectM.put("Description", myDocument2.getAttribute("description"));
-                videoObjectM.put("Qualities", myDocument2.getAttribute("qualities"));
-                videoObjectM.put("Private", myDocument2.getAttribute("private"));
-                videoObjectM.put("Date_Created", myDocument2.getAttribute("date_created"));
-                videoObjectM.put("Date_Modified", myDocument2.getAttribute("date_modified"));
+                videoObjectM.put("ChannelID",myDocument2.getAttribute("channel_id"));
+                videoObjectM.put("Likes",myDocument2.getAttribute("likes"));
+                videoObjectM.put("Dislikes",myDocument2.getAttribute("dislikes"));
+                videoObjectM.put("Views",myDocument2.getAttribute("views"));
+                videoObjectM.put("Title",myDocument2.getAttribute("title"));
+                videoObjectM.put("Category",myDocument2.getAttribute("category"));
+                videoObjectM.put("Duration",myDocument2.getAttribute("duration"));
+                videoObjectM.put("Description",myDocument2.getAttribute("description"));
+                videoObjectM.put("Qualities",myDocument2.getAttribute("qualities"));
+                videoObjectM.put("Private",myDocument2.getAttribute("private"));
+                videoObjectM.put("url",myDocument2.getAttribute("url"));
+                videoObjectM.put("Date_Created",myDocument2.getAttribute("date_created"));
+                videoObjectM.put("Date_Modified",myDocument2.getAttribute("date_modified"));
                 videoArray.add(videoObjectM);
             }
             videoObject.put("Channel  "+channel_id+" Videos:",videoArray);

@@ -12,27 +12,39 @@ import model.Videos;
 import java.io.IOException;
 import java.util.HashMap;
 
-public class GetVideos extends Command {
-   public static int id = 0;
+public class RetrieveVideo extends Command {
+
    public void execute() {
        HashMap<String, Object> props = parameters;
 
        Channel channel = (Channel) props.get("channel");
        JSONParser parser = new JSONParser();
-       id = 0;
+       boolean getVideo = true;
+       int id = 0;
+       int channel_id = 0;
        try {
-           System.out.println(props);
            JSONObject body = (JSONObject) parser.parse((String) props.get("body"));
            System.out.println(body.toString());
            JSONObject params = (JSONObject) parser.parse(body.get("parameters").toString());
-           id = Integer.parseInt(params.get("channel_id").toString());
+           if(params.containsKey("id")){
+                id = Integer.parseInt(params.get("id").toString());
+                getVideo = true;
+           }else{
+               channel_id = Integer.parseInt(params.get("channel_id").toString());
+               getVideo  = false;
+           }
        } catch (ParseException e) {
            e.printStackTrace();
        }
        AMQP.BasicProperties properties = (AMQP.BasicProperties) props.get("properties");
        AMQP.BasicProperties replyProps = (AMQP.BasicProperties) props.get("replyProps");
        Envelope envelope = (Envelope) props.get("envelope");
-       String response = Videos.getVideoChannelsByID(id); //Gets channels subscribed by id
+       String response = "";
+       if(getVideo) {
+            response = Videos.getVideoByID(id);
+       }else{
+            response = Videos.getVideoChannelsByID(channel_id);
+       }//Gets channels subscribed by id
        try {
            channel.basicPublish("", properties.getReplyTo(), replyProps, response.getBytes("UTF-8"));
            channel.basicAck(envelope.getDeliveryTag(), false);

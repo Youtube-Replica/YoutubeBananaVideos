@@ -11,7 +11,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeoutException;
 
 public class VideosService {
-    private static final String RPC_QUEUE_NAME = "videos-request";
+    private static final String RPC_QUEUE_NAME = "video-request";
 
     public static void main(String [] argv) {
 
@@ -72,7 +72,7 @@ public class VideosService {
                 }
             };
 
-            channel.basicConsume(RPC_QUEUE_NAME, false, consumer);
+            channel.basicConsume(RPC_QUEUE_NAME, true, consumer);
         } catch (IOException | TimeoutException e) {
             e.printStackTrace();
         }
