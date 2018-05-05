@@ -1,26 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="41b9e7e3-e63a-4d23-9a00-fdffad2c95fc" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+    <list default="true" id="41b9e7e3-e63a-4d23-9a00-fdffad2c95fc" name="Default" comment="fixing null pointer">
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Client/Client.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Client/ClientHandler.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Client/ClientInitializer.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Service/ServiceInterface.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Videos.iml" afterPath="$PROJECT_DIR$/Videos.iml" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VideosService.java" afterPath="$PROJECT_DIR$/src/main/java/Service/VideosService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/commands/Command.java" afterPath="$PROJECT_DIR$/src/main/java/Commands/Command.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/commands/CreateVideo.java" afterPath="$PROJECT_DIR$/src/main/java/Commands/CreateVideo.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/commands/DeleteVideo.java" afterPath="$PROJECT_DIR$/src/main/java/Commands/DeleteVideo.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/commands/RetrieveVideo.java" afterPath="$PROJECT_DIR$/src/main/java/Commands/RetrieveVideo.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/commands/UpdateVideo.java" afterPath="$PROJECT_DIR$/src/main/java/Commands/UpdateVideo.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Videos.java" afterPath="$PROJECT_DIR$/src/main/java/Model/Videos.java" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Commands/Command.class" afterPath="$PROJECT_DIR$/target/classes/Commands/Command.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Videos.class" afterPath="$PROJECT_DIR$/target/classes/Model/Videos.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/VideosService$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/VideosService.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/commands/CreateVideo.class" afterPath="$PROJECT_DIR$/target/classes/commands/CreateVideo.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/commands/DeleteVideo.class" afterPath="$PROJECT_DIR$/target/classes/commands/DeleteVideo.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/commands/RetrieveVideo.class" afterPath="$PROJECT_DIR$/target/classes/commands/RetrieveVideo.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/commands/UpdateVideo.class" afterPath="$PROJECT_DIR$/target/classes/commands/UpdateVideo.class" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -36,8 +22,8 @@
       <file leaf-file-name="Videos.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Model/Videos.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1148">
-              <caret line="105" column="0" lean-forward="false" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+            <state relative-caret-position="553">
+              <caret line="61" column="22" lean-forward="false" selection-start-line="61" selection-start-column="22" selection-end-line="61" selection-end-column="22" />
               <folding>
                 <element signature="e#605#606#0" expanded="true" />
                 <element signature="e#662#663#0" expanded="true" />
@@ -50,24 +36,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ServiceInterface.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ServiceInterface.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Service/ServiceInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
-              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="164">
+              <caret line="80" column="9" lean-forward="true" selection-start-line="80" selection-start-column="9" selection-end-line="80" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#513#514#0" expanded="true" />
                 <element signature="e#564#565#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClientHandler.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ClientHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Client/ClientHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="106">
+            <state relative-caret-position="266">
               <caret line="33" column="54" lean-forward="false" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="54" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClientInitializer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Client/ClientInitializer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -76,8 +73,8 @@
       <file leaf-file-name="VideosService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Service/VideosService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-686">
-              <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+            <state relative-caret-position="225">
+              <caret line="102" column="44" lean-forward="true" selection-start-line="102" selection-start-column="8" selection-end-line="102" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2360#2376#0" expanded="true" />
@@ -91,8 +88,8 @@
       <file leaf-file-name="Client.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Client/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="810">
-              <caret line="73" column="21" lean-forward="true" selection-start-line="73" selection-start-column="21" selection-end-line="73" selection-end-column="21" />
+            <state relative-caret-position="194">
+              <caret line="73" column="21" lean-forward="false" selection-start-line="73" selection-start-column="21" selection-end-line="73" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -156,8 +153,8 @@
         <option value="$PROJECT_DIR$/src/main/java/Model/Videos.java" />
         <option value="$PROJECT_DIR$/src/main/java/Service/VideosService.java" />
         <option value="$PROJECT_DIR$/src/main/java/Client/Client.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Service/ServiceInterface.java" />
         <option value="$PROJECT_DIR$/src/main/java/Client/ClientHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Service/ServiceInterface.java" />
       </list>
     </option>
   </component>
@@ -438,6 +435,14 @@
       <option name="presentableId" value="Default" />
       <updated>1521764658624</updated>
     </task>
+    <task id="LOCAL-00001" summary="fixing null pointer">
+      <created>1525483102757</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1525483102757</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -476,6 +481,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fixing null pointer" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixing null pointer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -674,20 +683,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Client/ClientInitializer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Service/VideosService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-686">
-          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+        <state relative-caret-position="225">
+          <caret line="102" column="44" lean-forward="true" selection-start-line="102" selection-start-column="8" selection-end-line="102" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2360#2376#0" expanded="true" />
@@ -697,20 +696,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Client/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="73" column="21" lean-forward="true" selection-start-line="73" selection-start-column="21" selection-end-line="73" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Model/Videos.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1148">
-          <caret line="105" column="0" lean-forward="false" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+        <state relative-caret-position="553">
+          <caret line="61" column="22" lean-forward="false" selection-start-line="61" selection-start-column="22" selection-end-line="61" selection-end-column="22" />
           <folding>
             <element signature="e#605#606#0" expanded="true" />
             <element signature="e#662#663#0" expanded="true" />
@@ -722,22 +711,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Service/ServiceInterface.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Client/Client.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state relative-caret-position="194">
+          <caret line="73" column="21" lean-forward="false" selection-start-line="73" selection-start-column="21" selection-end-line="73" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#564#565#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Client/ClientHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
+        <state relative-caret-position="266">
           <caret line="33" column="54" lean-forward="false" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="54" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Client/ClientInitializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Service/ServiceInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="80" column="9" lean-forward="true" selection-start-line="80" selection-start-column="9" selection-end-line="80" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#513#514#0" expanded="true" />
+            <element signature="e#564#565#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
