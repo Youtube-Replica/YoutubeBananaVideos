@@ -44,7 +44,8 @@ public class Videos {
     }
 
     public static String getVideoChannelsByID(int channel_id) {
-        ArangoDB arangoDB = new ArangoDB.Builder().build();
+        String host = System.getenv("ARANGO_DB_SERVICE_HOST");
+        ArangoDB arangoDB = new ArangoDB.Builder().host(host, 8529).build();
         String dbName = "scalable";
         JSONObject videoObject = new JSONObject();
         JSONArray videoArray = new JSONArray();
@@ -94,7 +95,8 @@ public class Videos {
 
 
     public static String postVideoByID(JSONObject params){
-        ArangoDB arangoDB = new ArangoDB.Builder().build();
+        String host = System.getenv("ARANGO_DB_SERVICE_HOST");
+        ArangoDB arangoDB = new ArangoDB.Builder().host(host, 8529).build();
         String dbName = "scalable";
         String collectionName = "video";
         BaseDocument myObject = new BaseDocument();
@@ -129,7 +131,8 @@ public class Videos {
         return "Deleted Video";
     }
     public static String updateVideo(JSONObject params){
-        ArangoDB arangoDB = new ArangoDB.Builder().build();
+        String host = System.getenv("ARANGO_DB_SERVICE_HOST");
+        ArangoDB arangoDB = new ArangoDB.Builder().host(host, 8529).build();
         String dbName = "scalable";
         String collectionName = "video";
         int id =  Integer.parseInt(params.get("id").toString());
