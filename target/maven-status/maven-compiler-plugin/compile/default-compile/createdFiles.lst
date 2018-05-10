@@ -1,0 +1,8 @@
+commands/Command.class
+commands/DeleteVideo.class
+VideosService$1.class
+model/Videos.class
+VideosService.class
+commands/UpdateVideo.class
+commands/CreateVideo.class
+commands/RetrieveVideo.class
